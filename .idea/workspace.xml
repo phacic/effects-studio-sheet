@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b16d3c9-a484-4b74-bea6-fff325bc4af7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sheetdata/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sheetdata/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sheetdata/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/settings/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/settings/default.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheetdata/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheetdata/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheetdata/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +111,7 @@
       <workItem from="1673687004225" duration="9000" />
       <workItem from="1673687026942" duration="1929000" />
       <workItem from="1673690292958" duration="622000" />
-      <workItem from="1673691152418" duration="3085000" />
+      <workItem from="1673691152418" duration="9941000" />
     </task>
     <servers />
   </component>

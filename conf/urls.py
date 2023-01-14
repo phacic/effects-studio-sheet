@@ -19,8 +19,5 @@ from sheetdata.urls import router
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('sheet-data/', include('sheetdata.urls')),
-
-    # alias to sheet-data endpoint
-    path('', include('sheetdata.urls')),
+    path("", include("sheetdata.urls")),
 ]
