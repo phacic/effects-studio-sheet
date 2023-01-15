@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -18,10 +19,25 @@ class SheetView(APIView):
         page_size: str = self.request.query_params.get("page_size")
 
         if page is not None and not page.isnumeric():
-            return Response(status=400, data={"msg": "page query parameter should be an integer"})
+            return Response(
+                status=status.HTTP_400_BAD_REQUEST,
+                data={"msg": "page query parameter should be an integer"},
+            )
 
         if page_size is not None and not page_size.isnumeric():
-            return Response(status=400, data={"msg": "page_size query parameter should be an integer"})
+            return Response(
+                status=status.HTTP_400_BAD_REQUEST,
+                data={"msg": "page_size query parameter should be an integer"},
+            )
 
-        data = load_sheet_data(no_cache=nocache, page=page, page_size=page_size)
+        page = int(page) if page else None
+        page_size = int(page_size) if page else None
+
+        err, data = load_sheet_data(no_cache=nocache, page=page, page_size=page_size)
+        if err:
+            return Response(
+                status=status.HTTP_404_NOT_FOUND,
+                data={"msg": "Cannot load external resource."},
+            )
+
         return Response(data=data)

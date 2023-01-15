@@ -5,16 +5,6 @@ networks:
     driver: "bridge"
 
 services:
-#  db:
-#    image: postgres:14
-#    environment:
-#      - POSTGRES_USER=${DB_USER}
-#      - POSTGRES_PASSWORD=${DB_PASSWORD}
-#      - POSTGRES_DB=${DB_NAME}
-#    networks:
-#      - backend
-#    expose:
-#      - "5432"
 
   web:
     build: .
