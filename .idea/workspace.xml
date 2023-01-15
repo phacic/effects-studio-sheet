@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b16d3c9-a484-4b74-bea6-fff325bc4af7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/sheetdata/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/asgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/settings/default.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/settings/default.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheetdata/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sheetdata/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sheetdata/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sheetdata/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sheetdata/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,7 +51,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -111,7 +109,7 @@
       <workItem from="1673687004225" duration="9000" />
       <workItem from="1673687026942" duration="1929000" />
       <workItem from="1673690292958" duration="622000" />
-      <workItem from="1673691152418" duration="9941000" />
+      <workItem from="1673691152418" duration="22142000" />
     </task>
     <servers />
   </component>
