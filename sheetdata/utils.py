@@ -1,17 +1,14 @@
 import csv
 import logging
+import urllib.request
 from http.client import HTTPResponse
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from urllib.error import HTTPError, URLError
-from urllib.request import urlopen
+from urllib.error import URLError
 
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
-
-# saved csv file location
-FILE_LOC = Path.joinpath(settings.BASE_DIR, "data.csv")
 
 
 def fetch_file() -> Tuple[Optional[URLError], Optional[HTTPResponse]]:
@@ -26,7 +23,7 @@ def fetch_file() -> Tuple[Optional[URLError], Optional[HTTPResponse]]:
 
     try:
         url = f"https://docs.google.com/spreadsheets/d/{settings.SHEET_FILE_ID}/gviz/tq?tqx=out:csv"
-        return None, urlopen(url)
+        return None, urllib.request.urlopen(url)
     except URLError as ex:
         logger.exception("could not fetch Google sheet")
         return ex, None
@@ -36,12 +33,13 @@ def save_sheet() -> Optional[URLError]:
     """
     save response in csv to access later
     """
+
     err, resp = fetch_file()
     if err:
         return err
 
     content = resp.read()
-    with open(FILE_LOC, "wb") as csv_file:
+    with open(settings.SAVED_CSV_FILE_PATH, "wb") as csv_file:
         csv_file.write(content)
 
 
@@ -49,12 +47,14 @@ def read_saved_csv() -> Tuple[Optional[URLError], Optional[List]]:
     """
     read from already saved csv
     """
+    csv_file_loc = settings.SAVED_CSV_FILE_PATH
+
     # check and download the file
-    if not Path.exists(FILE_LOC):
+    if not Path.exists(csv_file_loc):
         if err := save_sheet():
             return err, None
 
-    with open(FILE_LOC) as csv_file:
+    with open(csv_file_loc) as csv_file:
         csv_reader = csv.reader(csv_file)
         ls = list(csv_reader)
 
@@ -62,7 +62,7 @@ def read_saved_csv() -> Tuple[Optional[URLError], Optional[List]]:
 
 
 def data_to_dict(
-    lines: List[List], page: int = None, page_size: int = None
+        lines: List[List], page: int = None, page_size: int = None
 ) -> List[Dict]:
     """
     convert list of list to list of dictionary, paginate if requested.
@@ -71,6 +71,8 @@ def data_to_dict(
         page: current page
         page_size: items on a page, defaults to 5
     """
+    if not lines:
+        return []
 
     # first lines is the header
     title, descr, image = lines.pop(0)
@@ -96,13 +98,13 @@ def data_to_dict(
 
 
 def load_sheet_data(
-    no_cache: bool, page: int = None, page_size: int = None
+        no_cache: bool = True, page: int = None, page_size: int = None
 ) -> Tuple[Optional[URLError], Optional[List[Dict]]]:
     """
     load data from Google sheet into a list of dict
 
     Args:
-        no_cache: do not save a copy of the sheet (get a fresh one)
+        no_cache: do not save a copy of the sheet (get a fresh one), default to True
         page: pagination page
         page_size: if page size is set the number of items on a page
 
@@ -110,11 +112,10 @@ def load_sheet_data(
         List of Dict
     """
 
-    err = None
-
     if no_cache:
+
         # remove saved csv if exist
-        Path.unlink(FILE_LOC, missing_ok=True)
+        Path.unlink(settings.SAVED_CSV_FILE_PATH, missing_ok=True)
 
         err, resp = fetch_file()
         if err:
