@@ -62,7 +62,7 @@ def read_saved_csv() -> Tuple[Optional[URLError], Optional[List]]:
 
 
 def data_to_dict(
-        lines: List[List], page: int = None, page_size: int = None
+    lines: List[List], page: int = None, page_size: int = None
 ) -> List[Dict]:
     """
     convert list of list to list of dictionary, paginate if requested.
@@ -98,7 +98,7 @@ def data_to_dict(
 
 
 def load_sheet_data(
-        no_cache: bool = True, page: int = None, page_size: int = None
+    no_cache: bool = True, page: int = None, page_size: int = None
 ) -> Tuple[Optional[URLError], Optional[List[Dict]]]:
     """
     load data from Google sheet into a list of dict

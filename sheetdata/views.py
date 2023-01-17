@@ -31,7 +31,7 @@ class SheetView(APIView):
             )
 
         page = int(page) if page else None
-        page_size = int(page_size) if page else None
+        page_size = int(page_size) if page_size else None
 
         err, data = load_sheet_data(no_cache=nocache, page=page, page_size=page_size)
         if err:

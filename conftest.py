@@ -1,9 +1,9 @@
-from typing import List, Generator
-from tempfile import TemporaryDirectory
 from pathlib import Path
-from faker import Faker
+from tempfile import TemporaryDirectory
+from typing import Generator, List
 
 import pytest
+from faker import Faker
 
 fake = Faker()
 
@@ -15,7 +15,9 @@ def use_temp_base_dir(settings):
     """
     temp_base = TemporaryDirectory()
     settings.BASE_DIR = Path(temp_base.name)
-    settings.SAVED_CSV_FILE_PATH = Path.joinpath(settings.BASE_DIR, settings.SAVED_CSV_FILE)
+    settings.SAVED_CSV_FILE_PATH = Path.joinpath(
+        settings.BASE_DIR, settings.SAVED_CSV_FILE
+    )
 
     yield
     temp_base.cleanup()
@@ -24,6 +26,7 @@ def use_temp_base_dir(settings):
 @pytest.fixture(scope="session")
 def api_client():
     from rest_framework.test import APIClient
+
     return APIClient()
 
 
@@ -32,18 +35,19 @@ def generate_response_data():
     """
     generate a mock response
     """
+
     def do_gen(rows=20) -> bytes:
         # add 1 for header
         rows = rows + 1 if rows > 0 else rows
 
-        byte_data = b''
+        byte_data = b""
         for i in range(rows):
             if i == 0:
                 # header
-                byte_data += b'title,description,image\n'
+                byte_data += b"title,description,image\n"
             else:
-                line = f'{fake.word()},description {fake.word()},{fake.image_url()}\n'
-                byte_data += bytes(line, 'utf-8')
+                line = f"{fake.word()},description {fake.word()},{fake.image_url()}\n"
+                byte_data += bytes(line, "utf-8")
 
         return byte_data
 
@@ -54,11 +58,12 @@ class MockResponse:
     """
     mock response for urllib.request.open
     """
-    def __init__(self, resp_data, code=200, msg='OK'):
+
+    def __init__(self, resp_data, code=200, msg="OK"):
         self.resp_data: bytes = resp_data
         self.code = code
         self.msg = msg
-        self.headers = {'content-type': 'text/csv; charset=utf-8'}
+        self.headers = {"content-type": "text/csv; charset=utf-8"}
 
     def read(self):
         return self.resp_data
@@ -81,7 +86,8 @@ def request_response():
     """
     urllib request response
     """
-    def do_response(resp_data: bytes, code=200, msg='OK'):
+
+    def do_response(resp_data: bytes, code=200, msg="OK"):
         return MockResponse(resp_data=resp_data, code=code, msg=msg)
 
     return do_response
