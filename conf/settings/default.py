@@ -132,7 +132,6 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SHEET_FILE_ID = environ.get("FILE_ID")
-SHEET_NAME = environ.get("SHEET_NAME")
 SAVED_CSV_FILE = "data.csv"
 SAVED_CSV_FILE_PATH = Path.joinpath(BASE_DIR, SAVED_CSV_FILE)
 

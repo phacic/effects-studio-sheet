@@ -1,6 +1,5 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
-from typing import Generator, List
 
 import pytest
 from faker import Faker
@@ -18,6 +17,8 @@ def use_temp_base_dir(settings):
     settings.SAVED_CSV_FILE_PATH = Path.joinpath(
         settings.BASE_DIR, settings.SAVED_CSV_FILE
     )
+    # because request will be mocked we can set this to anything
+    settings.SHEET_FILE_ID = "some-text"
 
     yield
     temp_base.cleanup()
