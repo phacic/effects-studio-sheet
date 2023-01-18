@@ -8,10 +8,10 @@ from rest_framework.test import APIClient
 
 
 def test_get_data(
-        api_client: APIClient,
-        mocker: MockerFixture,
-        generate_response_data,
-        request_response
+    api_client: APIClient,
+    mocker: MockerFixture,
+    generate_response_data,
+    request_response,
 ):
     resp_data = generate_response_data()
     mock = mocker.patch("urllib.request.urlopen")
@@ -27,11 +27,11 @@ def test_get_data(
 
 
 def test_get_data_nocache(
-        api_client: APIClient,
-        mocker: MockerFixture,
-        generate_response_data,
-        request_response,
-        settings,
+    api_client: APIClient,
+    mocker: MockerFixture,
+    generate_response_data,
+    request_response,
+    settings,
 ):
     resp_data = generate_response_data()
     mock = mocker.patch("urllib.request.urlopen")
@@ -50,11 +50,11 @@ def test_get_data_nocache(
 
 
 def test_get_data_with_pagination(
-        api_client: APIClient,
-        mocker: MockerFixture,
-        generate_response_data,
-        request_response,
-        settings,
+    api_client: APIClient,
+    mocker: MockerFixture,
+    generate_response_data,
+    request_response,
+    settings,
 ):
     resp_data = generate_response_data()
     mock = mocker.patch("urllib.request.urlopen")
@@ -70,11 +70,11 @@ def test_get_data_with_pagination(
 
 
 def test_get_data_404(
-        api_client: APIClient,
-        mocker: MockerFixture,
-        generate_response_data,
-        request_response,
-        settings,
+    api_client: APIClient,
+    mocker: MockerFixture,
+    generate_response_data,
+    request_response,
+    settings,
 ):
     resp_data = generate_response_data()
     mock = mocker.patch("urllib.request.urlopen")
@@ -89,11 +89,11 @@ def test_get_data_404(
 
 
 def test_get_data_404_with_nocache(
-        api_client: APIClient,
-        mocker: MockerFixture,
-        generate_response_data,
-        request_response,
-        settings,
+    api_client: APIClient,
+    mocker: MockerFixture,
+    generate_response_data,
+    request_response,
+    settings,
 ):
     resp_data = generate_response_data()
     mock = mocker.patch("urllib.request.urlopen")

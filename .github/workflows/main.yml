@@ -20,13 +20,3 @@ jobs:
 
       - name: Test
         run: docker-compose run web pytest
-
-#      - name: Build
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          file: ./Dockerfile
-
-#      - name: Test
-#        run: docker run
-##        run: docker-compose run  --rm web pytest
