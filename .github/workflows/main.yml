@@ -19,5 +19,5 @@ jobs:
           context: .
           file: ./Dockerfile
 
-      - name: Inspect
-        run: docker-compose run  --rm wep pytest
+      - name: Test
+        run: docker-compose run  --rm web pytest
